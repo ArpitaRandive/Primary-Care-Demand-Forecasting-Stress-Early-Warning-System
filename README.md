@@ -1,104 +1,159 @@
 # 🏥 Primary Care Demand Forecasting & Stress Early Warning System
 
----
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/SARIMA-FF6F00?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/NHS_Data-005EB8?style=for-the-badge&logo=data&logoColor=white" />
+  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" />
+  <img src="https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=matplotlib&logoColor=white" />
+</p>
+
+> A **regional primary care demand forecasting and stress monitoring system** built on real NHS General Practice appointment data — designed to support operational planning and early warning of GP service pressure.
 
 ## 📌 Overview
 
-This project builds a regional primary care demand forecasting and stress monitoring framework using real NHS General Practice appointment data.
+This project evaluates how primary care service pressure evolves under:
+- 📈 Seasonal demand growth
+- ⚠️ Winter pressure spikes
+- 🏥 Capacity adjustments
+- 📊 Regional variability
 
-It evaluates how service pressure evolves under:
+The system combines **forecasting**, **stress quantification**, and **policy simulation** to support NHS operational planning decisions.
 
-📈 Seasonal demand growth  
-⚠️ Winter pressure spikes  
-🏥 Capacity adjustments  
-📊 Regional variability  
+## 🎯 Key Research Question
 
-The system combines forecasting, interpretable stress indexing, and multi-scenario simulation to support operational planning and resilience analysis.
+> *Can we design an interpretable stress index that detects early warning signals of GP service pressure?*
 
----
+The Primary Care Stress Index (PCSI) is designed to:
+- Detect early warning signals of GP service pressure
+- Capture seasonal stress patterns
+- Quantify regional vulnerability
+- Evaluate capacity mitigation strategies
 
-## 📊 National Demand Trend
+## 📊 Data Source
 
-![National Demand Trend](visuals/national_trend.png)
+- **NHS England** — Appointments in General Practice
+- Monthly regional data **(Jul 2023 – Dec 2025)**
+- **7 NHS regions**
+- No patient-level data used ✅
 
-The time-series shows strong seasonal patterns with recurring winter peaks across regions.
+### Regional Features (per region/month)
 
----
+| Feature | Description |
+|---------|-------------|
+| Total appointments | Overall demand volume |
+| Same-day appointment % | Urgent load indicator |
+| Appointment volatility | Service instability |
+| Demand growth rate | Pressure trend |
 
-## 📈 Forecasting Performance (London Example)
+## 📈 Forecasting Approach
 
-![SARIMA Forecast](visuals/sarima_forecast_London.png)
+| Model | Type |
+|-------|------|
+| Naïve forecast | Baseline |
+| 3-month moving average | Baseline |
+| **SARIMA** (12-month seasonality) | **Advanced** |
 
-### 🔬 Key Result
+### 🔬 Key Result (London Example)
 
 | Model | MAE |
-|--------|--------|
+|-------|-----|
 | Naïve | 345k |
-| SARIMA | **205k** |
+| **SARIMA** | **205k** |
 
-✅ ~40% reduction in forecasting error  
-✅ Successfully captures winter demand spikes  
+- ✅ ~40% reduction in forecasting error
+- ✅ Successfully captures winter demand spikes
 
----
+## ⚖️ Stress Index Design (PCSI)
 
-## 🧮 Primary Care Stress Index (PCSI)
+PCSI = Z(Demand Growth) + Z(Same-Day %) + Z(Demand Volatility)
 
-\[
-PCSI =
-Z(\text{Demand Growth}) +
-Z(\text{Same-Day %}) +
-Z(\text{Demand Volatility})
-\]
+| Component | Measures |
+|-----------|----------|
+| 📈 Growth | Sudden pressure increase |
+| ⚡ Same-day % | Urgent load |
+| 📊 Volatility | Service instability |
 
-- 📈 Growth → Pressure increase  
-- ⚡ Same-day % → Urgent load  
-- 📊 Volatility → Instability  
+### 🚦 Stress Thresholds
+- PCSI > 1.5 → **High stress**
+- PCSI > 2.5 → **Severe stress**
 
----
+## 🧪 Scenario Simulation Experiments
 
-## 🔥 National Stress Heatmap
+| Scenario | Description |
+|----------|-------------|
+| Base | Nominal conditions |
+| +5% Capacity | Moderate capacity increase |
+| +10% Capacity | Strong capacity increase |
+| +8% Winter Surge | Seasonal demand shock |
+| Surge + 10% Capacity | Mitigation strategy |
 
-![PCSI Heatmap](visuals/pcsi_heatmap.png)
+### 📊 Key Findings
+- 🏆 Baseline reflects recurring winter stress patterns
+- 📉 +5% capacity reduces stress moderately
+- 📉 +10% capacity significantly reduces stress
+- 📈 +8% winter surge increases stress sharply
+- ✅ +10% capacity successfully offsets winter surge impact
 
-Clear synchronised winter stress bands appear across all regions, with London exhibiting the highest peak intensity.
+## 🔎 Regional Sensitivity
 
----
+- 🔴 **London** — most surge-sensitive region
+- 🟢 **North East & Yorkshire** — most capacity-responsive
+- 📊 Urban regions show higher volatility overall
 
-## 🔬 Scenario Simulation (London)
+## 🚀 Getting Started
 
-### Combined Scenario Comparison
+### Installation
+pip install -r requirements.txt
 
-![London Multi Scenario](visuals/simulation/pcsi_multi_scenario_London.png)
+### Run Full Pipeline
+python simulation.py
 
-### Observations
+This will:
+1. Run all scenarios
+2. Generate regional plots
+3. Export scenario summary CSV
+4. Save national comparison charts
 
-- 📈 +8% Winter Surge increases stress sharply  
-- 📉 +10% Capacity significantly reduces stress  
-- ✅ Surge +10% Capacity offsets winter spike  
+### 📂 Output Structure
+visuals/
+    eda/
+    simulation/
+data/
+    processed/
+scenario_summary_matrix.csv
 
----
+## 🛠️ Technical Highlights
+- Time-series forecasting (SARIMA)
+- Composite stress index construction
+- Z-score standardization
+- Regional stress modeling
+- Capacity elasticity analysis
+- Policy scenario simulation
+- Structured data pipeline
 
-## 📊 National Scenario Impact
+## ⚠️ Limitations & Future Directions
 
-### Winter Surge Impact by Region
+**Current Limitations:**
+- Limited historical window (30 months)
+- Simplified capacity adjustment assumption
+- No workforce supply-side modeling
 
-![Winter Surge Impact](visuals/simulation/national_winter_surge_impact.png)
+**Future Directions:**
+- Incorporate GP workforce data
+- Probabilistic forecasting
+- Constrained optimization for capacity planning
+- Interactive dashboard deployment
 
-- 🔴 London most surge-sensitive  
-- 🟡 South West least sensitive  
+## 📝 Disclaimer
 
----
+This project uses **publicly available NHS aggregate data**. No patient-identifiable information is processed.
 
-### +10% Capacity Benefit by Region
+## 🎯 Project Impact
 
-![Capacity Benefit](visuals/simulation/national_capacity_10pct_impact.png)
+This project demonstrates how operational GP appointment data can be transformed into:
+- A **stress early warning framework**
+- A **regional capacity sensitivity tool**
+- A **winter pressure planning model**
 
-- 🟢 North East & Yorkshire most responsive  
-- 📊 Capacity elasticity varies regionally  
-
----
-
-## 📊 Scenario Summary Matrix
-
-Exported file:
-
+<p align="center">Made with ❤️ by <a href="https://github.com/ArpitaRandive">Arpita Randive</a></p>
