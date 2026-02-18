@@ -30,6 +30,23 @@ The Primary Care Stress Index (PCSI) is designed to:
 - Quantify regional vulnerability
 - Evaluate capacity mitigation strategies
 
+## 📊 Exploratory Data Analysis
+
+### 🌍 National GP Appointment Demand Over Time
+> National demand shows clear seasonal patterns with winter spikes in Jan 2024 and Jan 2025.
+
+![National Trend](visuals/eda/national_trend.png)
+
+### 📈 Regional GP Appointment Trends
+> Midlands consistently shows the highest appointment volume. All regions exhibit similar seasonal patterns.
+
+![Regional Trends](visuals/eda/regional_trends.png)
+
+### ⚡ Same-Day Appointment Percentage Over Time
+> London consistently has the highest same-day appointment rate — indicating highest urgent load pressure.
+
+![Same Day Trend](visuals/eda/same_day_trend.png)
+
 ## 📊 Data Source
 
 - **NHS England** — Appointments in General Practice
@@ -54,7 +71,12 @@ The Primary Care Stress Index (PCSI) is designed to:
 | 3-month moving average | Baseline |
 | **SARIMA** (12-month seasonality) | **Advanced** |
 
-### 🔬 Key Result (London Example)
+### 🔬 SARIMA Forecast vs Actual — London
+> SARIMA closely tracks actual demand, successfully capturing seasonal patterns and winter spikes.
+
+![SARIMA Forecast London](visuals/eda/sarima_forecast_London.png)
+
+### Key Result (London Example)
 
 | Model | MAE |
 |-------|-----|
@@ -78,10 +100,20 @@ PCSI = Z(Demand Growth) + Z(Same-Day %) + Z(Demand Volatility)
 - PCSI > 1.5 → **High stress**
 - PCSI > 2.5 → **Severe stress**
 
-### 🔵 Step 1 — Baseline PCSI (London)
-> This shows the natural stress pattern before any intervention — clear winter spikes visible in Jan 2024 and Jan 2025.
+### 🗺️ PCSI Heatmap — All Regions Over Time
+> Red = high stress, Blue = low stress. London and North West show the most severe winter stress episodes.
 
-![London Baseline PCSI](visuals/simulation/pcsi_London_Baseline.png)
+![PCSI Heatmap](visuals/eda/pcsi_heatmap.png)
+
+### 📊 PCSI Stress Index — London (with Thresholds)
+> Dashed lines show High (1.5) and Severe (2.5) stress thresholds. London breaches severe stress in Jan 2024 and Jan 2025.
+
+![PCSI London](visuals/eda/pcsi_London.png)
+
+### 🔵 PCSI Simulation — London (Original vs +5% Capacity)
+> Direct comparison of original vs simulated PCSI showing the impact of a modest 5% capacity increase.
+
+![PCSI Simulation London](visuals/eda/pcsi_simulation_London.png)
 
 ## 🧪 Scenario Simulation Experiments
 
@@ -94,9 +126,14 @@ PCSI = Z(Demand Growth) + Z(Same-Day %) + Z(Demand Volatility)
 | Surge + 10% Capacity | Mitigation strategy |
 
 ### 📊 All Scenarios Compared — London
-> Overlay of all 5 scenarios showing how each intervention shifts the PCSI curve.
+> Overlay of all 5 scenarios. Winter surge (red) clearly elevates PCSI while capacity increases (green) reduce it.
 
-![PCSI Multi Scenario Comparison London](visuals/simulation/pcsi_multi_scenario_London.png)
+![PCSI Multi Scenario London](visuals/simulation/pcsi_multi_scenario_London.png)
+
+### 🔵 Baseline PCSI — London
+> Natural stress pattern before any intervention — clear winter spikes visible.
+
+![London Baseline PCSI](visuals/simulation/pcsi_London_Baseline.png)
 
 ### 📉 +5% Capacity Scenario — London
 > Moderate capacity increase reduces stress slightly but winter spikes persist.
