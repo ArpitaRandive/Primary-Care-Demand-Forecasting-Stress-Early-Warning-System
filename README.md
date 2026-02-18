@@ -35,17 +35,17 @@ The Primary Care Stress Index (PCSI) is designed to:
 ### 🌍 National GP Appointment Demand Over Time
 > National demand shows clear seasonal patterns with winter spikes in Jan 2024 and Jan 2025.
 
-![National Trend](visuals/eda/national_trend.png)
+![National Trend](visuals/national_trend.png)
 
 ### 📈 Regional GP Appointment Trends
 > Midlands consistently shows the highest appointment volume. All regions exhibit similar seasonal patterns.
 
-![Regional Trends](visuals/eda/regional_trends.png)
+![Regional Trends](visuals/regional_trends.png)
 
 ### ⚡ Same-Day Appointment Percentage Over Time
 > London consistently has the highest same-day appointment rate — indicating highest urgent load pressure.
 
-![Same Day Trend](visuals/eda/same_day_trend.png)
+![Same Day Trend](visuals/same_day_trend.png)
 
 ## 📊 Data Source
 
@@ -74,7 +74,7 @@ The Primary Care Stress Index (PCSI) is designed to:
 ### 🔬 SARIMA Forecast vs Actual — London
 > SARIMA closely tracks actual demand, successfully capturing seasonal patterns and winter spikes.
 
-![SARIMA Forecast London](visuals/eda/sarima_forecast_London.png)
+![SARIMA Forecast London](visuals/sarima_forecast_London.png)
 
 ### Key Result (London Example)
 
@@ -103,17 +103,17 @@ PCSI = Z(Demand Growth) + Z(Same-Day %) + Z(Demand Volatility)
 ### 🗺️ PCSI Heatmap — All Regions Over Time
 > Red = high stress, Blue = low stress. London and North West show the most severe winter stress episodes.
 
-![PCSI Heatmap](visuals/eda/pcsi_heatmap.png)
+![PCSI Heatmap](visuals/pcsi_heatmap.png)
 
 ### 📊 PCSI Stress Index — London (with Thresholds)
 > Dashed lines show High (1.5) and Severe (2.5) stress thresholds. London breaches severe stress in Jan 2024 and Jan 2025.
 
-![PCSI London](visuals/eda/pcsi_London.png)
+![PCSI London](visuals/pcsi_London.png)
 
 ### 🔵 PCSI Simulation — London (Original vs +5% Capacity)
 > Direct comparison of original vs simulated PCSI showing the impact of a modest 5% capacity increase.
 
-![PCSI Simulation London](visuals/eda/pcsi_simulation_London.png)
+![PCSI Simulation London](visuals/pcsi_simulation_London.png)
 
 ## 🧪 Scenario Simulation Experiments
 
