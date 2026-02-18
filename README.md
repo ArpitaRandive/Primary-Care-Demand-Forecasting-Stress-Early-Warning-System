@@ -78,6 +78,11 @@ PCSI = Z(Demand Growth) + Z(Same-Day %) + Z(Demand Volatility)
 - PCSI > 1.5 → **High stress**
 - PCSI > 2.5 → **Severe stress**
 
+### 🔵 Step 1 — Baseline PCSI (London)
+> This shows the natural stress pattern before any intervention — clear winter spikes visible in Jan 2024 and Jan 2025.
+
+![London Baseline PCSI](visuals/simulation/pcsi_London_Baseline.png)
+
 ## 🧪 Scenario Simulation Experiments
 
 | Scenario | Description |
@@ -88,7 +93,32 @@ PCSI = Z(Demand Growth) + Z(Same-Day %) + Z(Demand Volatility)
 | +8% Winter Surge | Seasonal demand shock |
 | Surge + 10% Capacity | Mitigation strategy |
 
-### 📊 Key Findings
+### 📊 All Scenarios Compared — London
+> Overlay of all 5 scenarios showing how each intervention shifts the PCSI curve.
+
+![PCSI Multi Scenario Comparison London](visuals/simulation/pcsi_multi_scenario_London.png)
+
+### 📉 +5% Capacity Scenario — London
+> Moderate capacity increase reduces stress slightly but winter spikes persist.
+
+![PCSI London 5pct Capacity](visuals/simulation/pcsi_London__5pct_Capacity.png)
+
+### 📉 +10% Capacity Scenario — London
+> Strong capacity increase meaningfully reduces stress levels across the year.
+
+![PCSI London 10pct Capacity](visuals/simulation/pcsi_London__10pct_Capacity.png)
+
+### ⚠️ +8% Winter Surge Scenario — London
+> Demand shock sharply elevates PCSI — London most vulnerable region.
+
+![PCSI London Winter Surge](visuals/simulation/pcsi_London__8pct_Winter_Surge.png)
+
+### ✅ Surge + 10% Capacity Mitigation — London
+> Combined mitigation strategy successfully offsets the winter surge impact.
+
+![PCSI London Surge plus 10pct Capacity](visuals/simulation/pcsi_London_Surge_plus_10pct_Capacity.png)
+
+## 📊 Key Findings
 - 🏆 Baseline reflects recurring winter stress patterns
 - 📉 +5% capacity reduces stress moderately
 - 📉 +10% capacity significantly reduces stress
@@ -96,6 +126,16 @@ PCSI = Z(Demand Growth) + Z(Same-Day %) + Z(Demand Volatility)
 - ✅ +10% capacity successfully offsets winter surge impact
 
 ## 🔎 Regional Sensitivity
+
+### 🌍 National Impact of +8% Winter Surge
+> London shows highest vulnerability to winter demand shocks across all 7 regions.
+
+![National Winter Surge Impact](visuals/simulation/national_winter_surge_impact.png)
+
+### 🌍 National Impact of +10% Capacity
+> London benefits most from capacity increases — North East & Yorkshire also highly responsive.
+
+![National Capacity 10pct Impact](visuals/simulation/national_capacity_10pct_impact.png)
 
 - 🔴 **London** — most surge-sensitive region
 - 🟢 **North East & Yorkshire** — most capacity-responsive
