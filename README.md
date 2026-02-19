@@ -6,6 +6,7 @@
   <img src="https://img.shields.io/badge/NHS_Data-005EB8?style=for-the-badge&logo=data&logoColor=white" />
   <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" />
   <img src="https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=matplotlib&logoColor=white" />
+  <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" />
 </p>
 
 > A **regional primary care demand forecasting and stress monitoring system** built on real NHS General Practice appointment data — designed to support operational planning and early warning of GP service pressure.
